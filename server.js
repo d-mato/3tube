@@ -1,9 +1,10 @@
 const YoutubeMp3Downloader = require('youtube-mp3-downloader')
-const YD = new YoutubeMp3Downloader({
-  // "ffmpegPath": "/usr/bin/ffmpeg",
+const config = Object.assign({
+  "ffmpegPath": "/usr/bin/ffmpeg",
   "outputPath": "./audios",
-  // "progressTimeout": 2000,
-})
+  "progressTimeout": 1000,
+}, require('./config.json'))
+const YD = new YoutubeMp3Downloader(config)
 
 const express = require('express')
 const app = express()
